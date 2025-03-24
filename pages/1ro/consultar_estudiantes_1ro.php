@@ -152,6 +152,9 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 <button class='btn btn-danger btn-sm btn-eliminar' data-id='{$row['id_estudiante']}'>
                                     <i class='fas fa-trash'></i> Eliminar
                                 </button>
+                                 <a href='generar_pdf.php?id={$row['id_estudiante']}' class='btn btn-success btn-sm'>
+        <i class='fas fa-file-pdf'></i> Descargar PDF
+    </a>
                             </td>
                           </tr>";
                 }
