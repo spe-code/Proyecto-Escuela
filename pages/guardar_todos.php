@@ -6,6 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre_madre = $_POST['nombre_madre'];
     $apellido_madre = $_POST['apellido_madre'];
     $cedula_madre = $_POST['cedula_madre'];
+    $nacionalidad_madre = $_POST['nacionalidad_madre'];
     $telefono_local_madre = $_POST['telefono_local'];
     $telefono_madre = $_POST['telefono_madre'];
     $direccion_madre = $_POST['direccion'];
@@ -16,6 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre_padre = $_POST['nombre_padre'];
     $apellido_padre = $_POST['apellido_padre'];
     $cedula_padre = $_POST['cedula_padre'];
+    $nacionalidad_padre = $_POST['nacionalidad_padre'];
     $telefono_local_padre = $_POST['telefono_local'];
     $telefono_padre = $_POST['telefono_padre'];
     $direccion_padre = $_POST['direccion'];
@@ -23,12 +25,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Recoger los datos del formulario del representante legal
     $cedula = $_POST['cedula'];
+    $nacionalidad_representante = $_POST['nacionalidad_representante'];
     $nombre = $_POST['nombre_representante'];
     $apellido = $_POST['apellido_representante'];
     $telefono_local = $_POST['telefono_local'];
     $telefono_celular = $_POST['telefono_celular'];
     $parentesco = $_POST['parentesco'];
-    $carnet_patria = $_POST['carnet_patria'];
+    $direccion_representante = $_POST['direccion_representante'];
     $codigo = $_POST['codigo'];
     $serial = $_POST['serial'];
 
@@ -37,6 +40,7 @@ $sql_madre = "INSERT INTO madre (
     nombre_madre, 
     apellido_madre, 
     cedula_madre, 
+    nacionalidad_madre,
     telefono_local_madre, 
     telefono_celular_madre, 
     direccion_madre, 
@@ -45,7 +49,8 @@ $sql_madre = "INSERT INTO madre (
 ) VALUES (
     '$nombre_madre', 
     '$apellido_madre', 
-    '$cedula_madre', 
+    '$cedula_madre',
+    '$nacionalidad_madre',
     '$telefono_local_madre', 
     '$telefono_madre', 
     '$direccion_madre', 
@@ -57,6 +62,7 @@ $sql_padre = "INSERT INTO padre (
     nombre_padre, 
     apellido_padre, 
     cedula_padre, 
+    nacionalidad_padre,
     telefono_local_padre, 
     telefono_celular_padre, 
     direccion_padre, 
@@ -66,6 +72,7 @@ $sql_padre = "INSERT INTO padre (
     '$nombre_padre', 
     '$apellido_padre', 
     '$cedula_padre', 
+    '$nacionalidad_padre',
     '$telefono_local_padre', 
     '$telefono_padre', 
     '$direccion_padre', 
@@ -75,23 +82,25 @@ $sql_padre = "INSERT INTO padre (
 // Insertar datos en la tabla representante_legal
 $sql_representante = "INSERT INTO representante_legal (
     cedula_representante, 
+    nacionalidad_representante,
     nombre_representante,
     apellido_representante,
     telefono_local_representante, 
     telefono_celular_representante, 
     parentesco_representante, 
-    carnet_patria_representante, 
+    direccion_representante, 
     codigo_representante, 
     serial_representante, 
     id_estudiante
 ) VALUES (
-    '$cedula', 
+    '$cedula',
+    '$nacionalidad_representante', 
     '$nombre',
     '$apellido',
     '$telefono_local', 
     '$telefono_celular', 
     '$parentesco', 
-    '$carnet_patria', 
+    '$direccion_representante', 
     '$codigo', 
     '$serial', 
     '$id_estudiante'

@@ -11,8 +11,11 @@
     <!-- Estilos personalizados -->
     <style>
         body {
+         
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, rgb(17, 135, 203), #2575fc);
+            background: 
+             linear-gradient(rgba(25, 50, 70, 0.85), rgba(25, 50, 70, 0.85)),
+             url('../assets/img/fondo-inicio.jpeg') center/cover fixed;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -28,7 +31,7 @@
             text-align: center;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.18);
-            max-height: 500px;
+            max-height: 350px;
             height: 100%;
             max-width: 1000px;
             width: 100%;

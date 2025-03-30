@@ -25,6 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         'nombre_estudiante' => $datos['nombreEstudiante'],
         'apellido_estudiante' => $datos['apellidoEstudiante'],
         'cedula_estudiante' => $datos['cedulaEstudiante'],
+        'nacionalidad_estudiante' => $datos['nacionalidad_estudiante'],
         'fecha_nacimiento_estudiante' => $datos['fechaNacimientoEstudiante'],
         'lugar_nacimiento_estudiante' => $datos['lugarNacimientoEstudiante'],
         'direccion_estudiante' => $datos['direccionEstudiante'],
@@ -43,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($conn->query($sqlEstudiante) === TRUE) {
             echo "Datos del estudiante actualizados correctamente.<br>";
         } else {
-            echo "Error al actualizar datos del estudiante: " . $e->getMessage() . "<br>";
+            echo "Error al actualizar datos del estudiante: " . $conn->error . "<br>";
         }
     }
 
@@ -63,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($conn->query($sqlMadre) === TRUE) {
             echo "Datos de la madre actualizados correctamente.<br>";
         } else {
-            echo "Error al actualizar datos de la madre: " . $e->getMessage() . "<br>";
+            echo "Error al actualizar datos de la madre: " . $conn->error . "<br>";
         }
     }
 
@@ -83,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($conn->query($sqlPadre) === TRUE) {
             echo "Datos del padre actualizados correctamente.<br>";
         } else {
-            echo "Error al actualizar datos del padre: " . $e->getMessage() . "<br>";
+            echo "Error al actualizar datos del padre: " . $conn->error . "<br>";
         }
     }
 
@@ -95,7 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         'telefono_local_representante' => $datos['telefonoLocalRepresentante'],
         'telefono_celular_representante' => $datos['telefonoCelularRepresentante'],
         'parentesco_representante' => $datos['parentescoRepresentante'],
-        'carnet_patria_representante' => $datos['carnetPatria'],
+        'direccion_representante' => $datos['direccion_representante'],
         'codigo_representante' => $datos['codigo'],
         'serial_representante' => $datos['serial']
     ];
@@ -105,7 +106,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($conn->query($sqlRepresentante) === TRUE) {
             echo "Datos del representante legal actualizados correctamente.<br>";
         } else {
-            echo "Error al actualizar datos del representante legal: " . $e->getMessage() . "<br>";
+            echo "Error al actualizar datos del representante legal: " . $conn->error . "<br>";
         }
     }
 

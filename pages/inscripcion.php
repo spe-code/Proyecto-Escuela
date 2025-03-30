@@ -98,6 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $apellido = $_POST['apellido'];
     $sexo = $_POST['sexo'];
     $cedula = $_POST['cedula'];
+    $nacionalidad_estudiante = $_POST['nacionalidad_estudiante'];
     $fecha_nacimiento = $_POST['fecha_nacimiento'];
     $lugar_nacimiento = $_POST['lugar_nacimiento'];
     $direccion = $_POST['direccion'];
@@ -130,7 +131,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             nombre_estudiante, 
             apellido_estudiante, 
             sexo_estudiante, 
-            cedula_estudiante, 
+            cedula_estudiante,
+            nacionalidad_estudiante, 
             fecha_nacimiento_estudiante, 
             lugar_nacimiento_estudiante, 
             direccion_estudiante, 
@@ -147,6 +149,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             '$apellido', 
             '$sexo', 
             '$cedula', 
+            '$nacionalidad_estudiante',
             '$fecha_nacimiento', 
             '$lugar_nacimiento', 
             '$direccion', 
@@ -174,7 +177,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
     <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-custom fixed-top" style="background-color: white;">
+        <nav class="navbar navbar-expand-lg navbar-custom fixed-top" style="background-color: #7AB2D3;">
         <div class="container-fluid">
             <!-- Logo o nombre de la aplicación -->
             <a class="navbar-brand" href="#">
@@ -238,12 +241,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="invalid-feedback">Por favor, ingresa tu cédula.</div>
         </div>
 
-        <!-- Apellido -->
+        <!-- Nombre -->
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido" required>
-            <label for="apellido">Apellido</label>
-            <div class="invalid-feedback">Por favor, ingresa tu apellido.</div>
+            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required>
+            <label for="nombre">Nombre</label>
+            <div class="invalid-feedback">Por favor, ingresa tu nombre.</div>
         </div>
+
 
         <!-- Lugar de Nacimiento -->
         <div class="form-floating mb-3">
@@ -309,12 +313,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <!-- Columna 2 -->
     <div class="col-md-6">
-        <!-- Nombre -->
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required>
-            <label for="nombre">Nombre</label>
-            <div class="invalid-feedback">Por favor, ingresa tu nombre.</div>
+
+    <div class="form-floating mb-3">
+        <select class="form-select" id="nacionalidad_estudiante" name="nacionalidad_estudiante" required>
+        <option value="">Seleccione una opción</option>
+        <option value="Venezolana">Venezolana</option>
+        <option value="Extranjera">Extranjera</option>
+        </select>
+        <label for="nacionalidadestudiante">Nacionalidad</label>
+        <div class="invalid-feedback">Por favor, ingrese una Nacionalidad.</div>
+    </div>
+
+          <!-- Apellido -->
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido" required>
+            <label for="apellido">Apellido</label>
+            <div class="invalid-feedback">Por favor, ingresa tu apellido.</div>
         </div>
+        
 
         <!-- Fecha de Nacimiento -->
         <div class="form-floating mb-3">

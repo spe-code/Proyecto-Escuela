@@ -84,8 +84,8 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="../1ro/consultar_estudiantes_1ro.php" target="_blank">1er AÑO</a></li>
-                            <li><a class="dropdown-item" href="../2do/consultar_estudiantes_2do.php" target="_blank">2do AÑO</a></li>
-                            <li><a class="dropdown-item" href="../3ro/consultar_estudiantes_3ro.php">3er AÑO</a></li>
+                            <li><a class="dropdown-item" href="../2do/consultar_estudiantes_2do.php">2do AÑO</a></li>
+                            <li><a class="dropdown-item" href="../3ro/consultar_estudiantes_3ro.php" target="_blank">3er AÑO</a></li>
                             <li><a class="dropdown-item" href="../4to/consultar_estudiantes_4to.php" target="_blank">4to AÑO</a></li>
                             <li><a class="dropdown-item" href="../5to/consultar_estudiantes_5to.php" target="_blank">5to AÑO</a></li>
                         </ul>
@@ -94,6 +94,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
         </div>
     </nav>
+
 
 <div class="container mt-5">
     <h1 class="text-center mb-4">Consultar Datos de Estudiantes de 3ro Año</h1>
@@ -151,6 +152,9 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 <button class='btn btn-danger btn-sm btn-eliminar' data-id='{$row['id_estudiante']}'>
                                     <i class='fas fa-trash'></i> Eliminar
                                 </button>
+                                 <a href='../generar_pdf.php?id={$row['id_estudiante']}' class='btn btn-success btn-sm'>
+        <i class='fas fa-file-pdf'></i> Descargar PDF
+    </a>
                             </td>
                           </tr>";
                 }
@@ -189,42 +193,112 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </div>
                 <div class="modal-body">
                     <form id="formEditar">
-                        <!-- Estudiante -->
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <h6 class="card-subtitle mb-3 text-muted">Datos del Estudiante</h6>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label for="nombreEstudiante" class="form-label">Nombre</label>
-                                            <input type="text" class="form-control" id="nombreEstudiante" name="nombreEstudiante" required>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="apellidoEstudiante" class="form-label">Apellido</label>
-                                            <input type="text" class="form-control" id="apellidoEstudiante" name="apellidoEstudiante" required>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="cedulaEstudiante" class="form-label">Cédula</label>
-                                            <input type="text" class="form-control" id="cedulaEstudiante" name="cedulaEstudiante" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label for="fechaNacimientoEstudiante" class="form-label">Fecha de Nacimiento</label>
-                                            <input type="date" class="form-control" id="fechaNacimientoEstudiante" name="fechaNacimientoEstudiante" required>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="lugarNacimientoEstudiante" class="form-label">Lugar de Nacimiento</label>
-                                            <input type="text" class="form-control" id="lugarNacimientoEstudiante" name="lugarNacimientoEstudiante" required>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="direccionEstudiante" class="form-label">Dirección</label>
-                                            <input type="text" class="form-control" id="direccionEstudiante" name="direccionEstudiante" required>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                 <!-- Estudiante -->
+                                 <div class="card mb-4">
+    <div class="card-body">
+        <h6 class="card-subtitle mb-3 text-muted">Datos del Estudiante</h6>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="nombreEstudiante" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="nombreEstudiante" name="nombreEstudiante" required>
+                </div>
+                <div class="mb-3">
+                    <label for="apellidoEstudiante" class="form-label">Apellido</label>
+                    <input type="text" class="form-control" id="apellidoEstudiante" name="apellidoEstudiante" required>
+                </div>
+                <div class="mb-3">
+                    <label for="cedulaEstudiante" class="form-label">Cédula</label>
+                    <input type="text" class="form-control" id="cedulaEstudiante" name="cedulaEstudiante" required>
+                </div>
+                
+                <div class="form-floating mb-3">
+                    <select class="form-select" id="nacionalidad_estudiante" name="nacionalidad_estudiante" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="Venezolana">Venezolana</option>
+                    <option value="Extranjera">Extranjera</option>
+                    </select>
+                    <label for="nacionalidadestudiante">Nacionalidad</label>
+                    <div class="invalid-feedback">Por favor, ingrese una Nacionalidad.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="sexoEstudiante" class="form-label">Sexo</label>
+                    <select class="form-select" id="sexoEstudiante" name="sexoEstudiante" required>
+                        <option value="M">Masculino</option>
+                        <option value="F">Femenino</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="fechaNacimientoEstudiante" class="form-label">Fecha de Nacimiento</label>
+                    <input type="date" class="form-control" id="fechaNacimientoEstudiante" name="fechaNacimientoEstudiante" required>
+                </div>
+                <div class="mb-3">
+                    <label for="lugarNacimientoEstudiante" class="form-label">Lugar de Nacimiento</label>
+                    <input type="text" class="form-control" id="lugarNacimientoEstudiante" name="lugarNacimientoEstudiante" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="direccionEstudiante" class="form-label">Dirección</label>
+                    <input type="text" class="form-control" id="direccionEstudiante" name="direccionEstudiante" required>
+                </div>
+                <div class="mb-3">
+                    <label for="telefonoLocalEstudiante" class="form-label">Teléfono Local</label>
+                    <input type="text" class="form-control" id="telefonoLocalEstudiante" name="telefonoLocalEstudiante">
+                </div>
+                <div class="mb-3">
+                    <label for="telefonoCelularEstudiante" class="form-label">Teléfono Celular</label>
+                    <input type="text" class="form-control" id="telefonoCelularEstudiante" name="telefonoCelularEstudiante" required>
+                </div>
+                <div class="mb-3">
+                    <label for="correoEstudiante" class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="correoEstudiante" name="correoEstudiante">
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="añoCursarEstudiante" class="form-label">Año que Cursa</label>
+                            <input type="number" class="form-control" id="añoCursarEstudiante" name="añoCursarEstudiante" required>
                         </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="seccionEstudiante" class="form-label">Sección</label>
+                            <select class="form-select" id="seccionEstudiante" name="seccionEstudiante" required>
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                                <option value="D">D</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="tipoEstudiante" class="form-label">Tipo de Estudiante</label>
+                    <select class="form-select" id="tipoEstudiante" name="tipoEstudiante" required>
+                        <option value="regular">Regular</option>
+                        <option value="repitiente">Repitiente</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="padeceEnfermedad" class="form-label">Enfermedades que Padece</label>
+                    <textarea class="form-control" id="padeceEnfermedad" name="padeceEnfermedad" rows="2"></textarea>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="esAlergico" class="form-label">Alergias</label>
+                    <textarea class="form-control" id="esAlergico" name="esAlergico" rows="2"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
                         <!-- Madre -->
                         <div class="card mb-4">
@@ -318,7 +392,13 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                             <label for="cedulaRepresentante" class="form-label">Cédula</label>
                                             <input type="text" class="form-control" id="cedulaRepresentante" name="cedulaRepresentante" required>
                                         </div>
+
+                                        <div class="mb-3">
+                                        <label for="serial">Serial del Carnet de la Patria</label>
+                                            <input type="text" class="form-control" id="serial" name="serial" placeholder="Serial">
+                                        </div>
                                     </div>
+
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="telefonoLocalRepresentante" class="form-label">Teléfono Local</label>
@@ -332,8 +412,16 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                             <label for="parentescoRepresentante" class="form-label">Parentesco</label>
                                             <input type="text" class="form-control" id="parentescoRepresentante" name="parentescoRepresentante" required>
                                         </div>
+                                        <div class="mb-3">
+                                        <label for="codigo">Código Carnet de la Patria</label>
+                                        <input type="text" class="form-control" id="codigo" name="codigo" placeholder="Código">
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="col">
+                                    <label for="direccion_representante">Direccion</label>
+                                    <input type="text" class="form-control" id="direccion_representante" name="direccion_representante" placeholder="Direccion">
+                                    </div>
                             </div>
                         </div>
                     </form>
@@ -418,6 +506,7 @@ $(document).ready(function() {
                         $('#nombreEstudiante').val(datos.nombre_estudiante);
                         $('#apellidoEstudiante').val(datos.apellido_estudiante);
                         $('#cedulaEstudiante').val(datos.cedula_estudiante);
+                        $('#nacionalidad_estudiante').val(datos.nacionalidad_estudiante);
                         $('#fechaNacimientoEstudiante').val(datos.fecha_nacimiento_estudiante);
                         $('#lugarNacimientoEstudiante').val(datos.lugar_nacimiento_estudiante);
                         $('#direccionEstudiante').val(datos.direccion_estudiante);
@@ -452,7 +541,7 @@ $(document).ready(function() {
                         $('#telefonoLocalRepresentante').val(datos.telefono_local_representante);
                         $('#telefonoCelularRepresentante').val(datos.telefono_celular_representante);
                         $('#parentescoRepresentante').val(datos.parentesco_representante);
-                        $('#carnetPatria').val(datos.carnet_patria_representante);
+                        $('#direccion_representante').val(datos.direccion_representante);
                         $('#codigo').val(datos.codigo_representante);
                         $('#serial').val(datos.serial_representante);
                     },
@@ -471,6 +560,7 @@ $(document).ready(function() {
                     nombreEstudiante: $('#nombreEstudiante').val(),
                     apellidoEstudiante: $('#apellidoEstudiante').val(),
                     cedulaEstudiante: $('#cedulaEstudiante').val(),
+                    nacionalidad_estudiante: $('#nacionalidad_estudiante').val(),
                     fechaNacimientoEstudiante: $('#fechaNacimientoEstudiante').val(),
                     lugarNacimientoEstudiante: $('#lugarNacimientoEstudiante').val(),
                     direccionEstudiante: $('#direccionEstudiante').val(),
@@ -505,25 +595,36 @@ $(document).ready(function() {
                     telefonoLocalRepresentante: $('#telefonoLocalRepresentante').val(),
                     telefonoCelularRepresentante: $('#telefonoCelularRepresentante').val(),
                     parentescoRepresentante: $('#parentescoRepresentante').val(),
-                    carnetPatria: $('#carnetPatria').val(),
+                    direccion_representante: $('#direccion_representante').val(),
                     codigo: $('#codigo').val(),
                     serial: $('#serial').val()
                 };
 
                 // Enviar los datos al servidor para actualizar
                 $.ajax({
-                    url: 'actualizar_datos.php', // Archivo PHP que procesa la actualización
-                    type: 'POST',
-                    data: { id: id, datos: datos },
-                    success: function(response) {
-                        alert('Datos actualizados correctamente.');
-                        $('#modalEditar').modal('hide'); // Cerrar el modal
-                        location.reload(); // Recargar la página para ver los cambios
-                    },
-                    error: function() {
-                        alert('Error al actualizar los datos.');
-                    }
-                });
+    url: 'actualizar_datos.php', // Archivo PHP que procesa la actualización
+    type: 'POST',
+    data: { id: id, datos: datos },
+    success: function(response) {
+        Swal.fire({
+            title: 'Éxito',
+            text: 'Datos actualizados correctamente',
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
+        }).then((result) => {
+            $('#modalEditar').modal('hide'); // Cerrar el modal
+            location.reload(); // Recargar la página para ver los cambios
+        });
+    },
+    error: function() {
+        Swal.fire({
+            title: 'Error',
+            text: 'Error al actualizar los datos',
+            icon: 'error',
+            confirmButtonText: 'Entendido'
+        });
+    }
+});
             });
         });
     </script>

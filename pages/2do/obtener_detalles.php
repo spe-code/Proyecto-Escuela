@@ -31,7 +31,7 @@ $sql = "SELECT
             r.telefono_local_representante, 
             r.telefono_celular_representante, 
             r.parentesco_representante, 
-            r.carnet_patria_representante, 
+            r.direccion_representante, 
             r.codigo_representante, 
             r.serial_representante
         FROM estudiantes e
@@ -77,9 +77,9 @@ if (!$row) {
                         <p><strong>Cédula:</strong> <?php echo htmlspecialchars($row['cedula_estudiante']); ?></p>
                     </div>
                     <div class="col-md-4">
+                        <p><strong>Nacionalidad:</strong> <?php echo htmlspecialchars($row['nacionalidad_estudiante']); ?></p>
                         <p><strong>Fecha de Nacimiento:</strong> <?php echo htmlspecialchars($row['fecha_nacimiento_estudiante']); ?></p>
                         <p><strong>Lugar de Nacimiento:</strong> <?php echo htmlspecialchars($row['lugar_nacimiento_estudiante']); ?></p>
-                        <p><strong>Dirección:</strong> <?php echo htmlspecialchars($row['direccion_estudiante']); ?></p>
                     </div>
                     <div class="col-md-4">
                         <p><strong>Teléfono Local:</strong> <?php echo htmlspecialchars($row['telefono_local_estudiante']); ?></p>
@@ -91,9 +91,10 @@ if (!$row) {
                     <div class="col-md-4">
                         <p><strong>Año que Cursa:</strong> <?php echo htmlspecialchars($row['año_cursar_estudiante']); ?></p>
                         <p><strong>Sección:</strong> <?php echo htmlspecialchars($row['seccion_estudiante']); ?></p>
-                        <p><strong>Tipo de Estudiante:</strong> <?php echo htmlspecialchars($row['tipo_estudiante']); ?></p>
+                        <p><strong>Dirección:</strong> <?php echo htmlspecialchars($row['direccion_estudiante']); ?></p>
                     </div>
                     <div class="col-md-4">
+                        <p><strong>Tipo de Estudiante:</strong> <?php echo htmlspecialchars($row['tipo_estudiante']); ?></p>
                         <p><strong>Padece Enfermedad:</strong> <?php echo htmlspecialchars($row['padece_enfermedad_estudiante']); ?></p>
                         <p><strong>Es Alérgico:</strong> <?php echo htmlspecialchars($row['es_alergico_estudiante']); ?></p>
                     </div>
@@ -149,8 +150,8 @@ if (!$row) {
                                 <p><strong>Teléfono Local:</strong> <?php echo htmlspecialchars($row['telefono_local_representante']); ?></p>
                                 <p><strong>Teléfono Celular:</strong> <?php echo htmlspecialchars($row['telefono_celular_representante']); ?></p>
                                 <p><strong>Parentesco:</strong> <?php echo htmlspecialchars($row['parentesco_representante']); ?></p>
-                                <p><strong>Carnet de la Patria:</strong> <?php echo htmlspecialchars($row['carnet_patria_representante']); ?></p>
-                                <p><strong>Código:</strong> <?php echo htmlspecialchars($row['codigo_representante']); ?></p>
+                                <p><strong>Direccion:</strong> <?php echo htmlspecialchars($row['direccion_representante']); ?></p>
+                                <p><strong>Código:</strong> <?php echo htmlspecialchars($row['codigo_representante']); ?></p> 
                                 <p><strong>Serial:</strong> <?php echo htmlspecialchars($row['serial_representante']); ?></p>
                             </div>
                         </div>
