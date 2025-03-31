@@ -363,6 +363,17 @@ $pdf->Write(0, $data['serial_representante']);
 $pdf->SetXY(38, 193); // Cambia las coordenadas según la posición en tu plantilla
 $pdf->Write(0, $data['direccion_representante']);
 
-// Salida del PDF
-$pdf->Output('D', 'planilla_inscripcion.pdf');
+
+$nombreArchivo = 'Planilla_Inscripcion_' . 
+                 $data['cedula_estudiante'] . '_' . 
+                 $data['nombre_estudiante'] . '_' . 
+                 $data['apellido_estudiante'] . '_' . 
+                 $data['año_cursar_estudiante'] . '_' . 
+                 $data['seccion_estudiante'] . '.pdf';
+
+// Reemplazar espacios y caracteres especiales en el nombre del archivo
+$nombreArchivo = preg_replace('/[^A-Za-z0-9_.-]/', '_', $nombreArchivo);
+
+// Salida del PDF con el nombre personalizado
+$pdf->Output('D', $nombreArchivo);
 ?>

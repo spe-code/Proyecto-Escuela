@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nacionalidad_madre = $_POST['nacionalidad_madre'];
     $telefono_local_madre = $_POST['telefono_local'];
     $telefono_madre = $_POST['telefono_madre'];
-    $direccion_madre = $_POST['direccion'];
+    $direccion_madre = $_POST['direccion_madre'];
     $oficio_madre = $_POST['oficio'];
     $id_estudiante = $_POST['id_estudiante'];
 

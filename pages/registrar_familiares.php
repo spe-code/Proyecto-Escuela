@@ -200,7 +200,7 @@ if (isset($_GET['id_estudiante'])) {
                             </div>
                             <!-- Fila 4 -->
                             <div class="col-md-6 form-floating mb-4">
-                                <input type="text" class="form-control" id="direccion_madre" name="direccion" placeholder="Dirección">
+                                <input type="text" class="form-control" id="direccion_madre" name="direccion_madre" placeholder="Dirección">
                                 <label for="direccion_madre">Dirección</label>
                             </div>
                         </div>

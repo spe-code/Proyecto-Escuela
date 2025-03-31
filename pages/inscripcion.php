@@ -110,6 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tipo_estudiante = $_POST['tipo_estudiante'];
     $padece_enfermedad = $_POST['padece_enfermedad'];
     $es_alergico = $_POST['es_alergico'];
+    $periodo_escolar = $_POST['periodo_escolar'];
 
     // Verificar si la cédula ya existe
     $sql_verificar_cedula = "SELECT cedula_estudiante FROM estudiantes WHERE cedula_estudiante = '$cedula'";
@@ -143,7 +144,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             seccion_estudiante, 
             tipo_estudiante, 
             padece_enfermedad_estudiante, 
-            es_alergico_estudiante
+            es_alergico_estudiante,
+            periodo_escolar
         ) VALUES (
             '$nombre', 
             '$apellido', 
@@ -160,7 +162,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             '$seccion', 
             '$tipo_estudiante', 
             '$padece_enfermedad', 
-            '$es_alergico'
+            '$es_alergico',
+            '$periodo_escolar'
         )";
 
         if ($conn->query($sql_estudiantes)) {
@@ -226,14 +229,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
          <div class="container">   
             <form method="POST" class="needs-validation" novalidate>
+            
+                
                 <div class="row">
                 <div class="row">
                 <div class="row">
                 <div class="row">
                 <div class="row">
     <!-- Columna 1 -->
+<div class="col-md-12">
 
+        <!-- Período Escolar -->
+        <div class="form-floating mb-3">
+            <select class="form-select" id="periodo_escolar" name="periodo_escolar" required>
+                <option value="">Seleccione un período escolar</option>
+            </select>
+            <label for="periodo_escolar">Período Escolar</label>
+            <div class="invalid-feedback">Por favor, selecciona un período escolar.</div>
+        </div>
+</div>
     <div class="col-md-6">
+        
         <!-- Cédula -->
         <div class="form-floating mb-3">
             <input type="text" class="form-control" id="cedula" name="cedula" placeholder="Cédula" required>
@@ -399,76 +415,103 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-          // Obtener el select y el contenedor del campo de texto
-    const selectAlergico = document.getElementById('es_alergico_select');
-    const descripcionAlergiaContainer = document.getElementById('descripcion_alergia_container');
-
-    // Escuchar cambios en el select
-    selectAlergico.addEventListener('change', function () {
-        if (this.value === 'Si') {
-            // Mostrar el campo de texto si se selecciona "Sí"
-            descripcionAlergiaContainer.style.display = 'block';
-        } else {
-            // Ocultar el campo de texto si se selecciona "No"
-            descripcionAlergiaContainer.style.display = 'none';
+        // Función para generar las opciones del período escolar
+        function generarPeriodosEscolares() {
+            const select = document.getElementById('periodo_escolar');
+            const añoActual = new Date().getFullYear();
+            
+            // Limpiar opciones existentes (excepto la primera)
+            while (select.options.length > 1) {
+                select.remove(1);
+            }
+            
+            // Agregar opciones para el año actual y el siguiente
+            const opcionActual = `${añoActual-1}-${añoActual}`;
+            const opcionSiguiente = `${añoActual}-${añoActual+1}`;
+            
+            // Crear y agregar opciones
+            const optionActual = document.createElement('option');
+            optionActual.value = opcionActual;
+            optionActual.textContent = opcionActual;
+            select.appendChild(optionActual);
+            
+            const optionSiguiente = document.createElement('option');
+            optionSiguiente.value = opcionSiguiente;
+            optionSiguiente.textContent = opcionSiguiente;
+            select.appendChild(optionSiguiente);
         }
-    });    
-    
-     // Obtener el select y el contenedor del campo de texto
-     const selectEnfermedad = document.getElementById('padece_enfermedad_select');
-    const descripcionEnfermedadContainer = document.getElementById('descripcion_enfermedad_container');
+        
+        // Llamar a la función al cargar la página
+        document.addEventListener('DOMContentLoaded', generarPeriodosEscolares);
 
-    // Escuchar cambios en el select
-    selectEnfermedad.addEventListener('change', function () {
-        if (this.value === 'Si') {
-            // Mostrar el campo de texto si se selecciona "Sí"
-            descripcionEnfermedadContainer.style.display = 'block';
-        } else {
-            // Ocultar el campo de texto si se selecciona "No"
-            descripcionEnfermedadContainer.style.display = 'none';
-        }
-    });
+        // Obtener el select y el contenedor del campo de texto
+        const selectAlergico = document.getElementById('es_alergico_select');
+        const descripcionAlergiaContainer = document.getElementById('descripcion_alergia_container');
 
-    // Validar campos que solo permiten números (Cédula, Teléfono Celular, Teléfono Local, Año a Cursar)
-    document.querySelectorAll('#cedula, #telefono_celular, #telefono_local, #año_cursar').forEach(input => {
-        input.addEventListener('input', function (e) {
-            // Expresión regular para permitir solo números
-            const regex = /^[0-9]*$/;
-            if (!regex.test(this.value)) {
-                // Si no coincide, elimina el último carácter ingresado
-                this.value = this.value.slice(0, -1);
+        // Escuchar cambios en el select
+        selectAlergico.addEventListener('change', function () {
+            if (this.value === 'Si') {
+                // Mostrar el campo de texto si se selecciona "Sí"
+                descripcionAlergiaContainer.style.display = 'block';
+            } else {
+                // Ocultar el campo de texto si se selecciona "No"
+                descripcionAlergiaContainer.style.display = 'none';
+            }
+        });    
+        
+        // Obtener el select y el contenedor del campo de texto
+        const selectEnfermedad = document.getElementById('padece_enfermedad_select');
+        const descripcionEnfermedadContainer = document.getElementById('descripcion_enfermedad_container');
+
+        // Escuchar cambios en el select
+        selectEnfermedad.addEventListener('change', function () {
+            if (this.value === 'Si') {
+                // Mostrar el campo de texto si se selecciona "Sí"
+                descripcionEnfermedadContainer.style.display = 'block';
+            } else {
+                // Ocultar el campo de texto si se selecciona "No"
+                descripcionEnfermedadContainer.style.display = 'none';
             }
         });
-    });
 
-    // Validar campos que solo permiten letras (Nombre, Apellido, Sección, Es Alérgico, Padece de una Enfermedad, Lugar de Nacimiento)
-    document.querySelectorAll('#nombre, #apellido, #seccion, #es_alergico, #padece_enfermedad, #lugar_nacimiento').forEach(input => {
-        input.addEventListener('input', function (e) {
-            // Expresión regular para permitir solo letras y espacios
-            const regex = /^[A-Za-zÁáÉéÍíÓóÚúÜüÑñ\s]*$/;
-            if (!regex.test(this.value)) {
-                // Si no coincide, elimina el último carácter ingresado
-                this.value = this.value.slice(0, -1);
-            }
-        });
-    });
-
-
-
-    // Validar el formulario antes de enviarlo
-    (function() {
-        'use strict';
-        var forms = document.querySelectorAll('.needs-validation');
-        Array.prototype.slice.call(forms).forEach(function(form) {
-            form.addEventListener('submit', function(event) {
-                if (!form.checkValidity()) {
-                    event.preventDefault();
-                    event.stopPropagation();
+        // Validar campos que solo permiten números (Cédula, Teléfono Celular, Teléfono Local, Año a Cursar)
+        document.querySelectorAll('#cedula, #telefono_celular, #telefono_local, #año_cursar').forEach(input => {
+            input.addEventListener('input', function (e) {
+                // Expresión regular para permitir solo números
+                const regex = /^[0-9]*$/;
+                if (!regex.test(this.value)) {
+                    // Si no coincide, elimina el último carácter ingresado
+                    this.value = this.value.slice(0, -1);
                 }
-                form.classList.add('was-validated');
-            }, false);
+            });
         });
-    })();
-</script>
+
+        // Validar campos que solo permiten letras (Nombre, Apellido, Sección, Es Alérgico, Padece de una Enfermedad, Lugar de Nacimiento)
+        document.querySelectorAll('#nombre, #apellido, #seccion, #es_alergico, #padece_enfermedad, #lugar_nacimiento').forEach(input => {
+            input.addEventListener('input', function (e) {
+                // Expresión regular para permitir solo letras y espacios
+                const regex = /^[A-Za-zÁáÉéÍíÓóÚúÜüÑñ\s]*$/;
+                if (!regex.test(this.value)) {
+                    // Si no coincide, elimina el último carácter ingresado
+                    this.value = this.value.slice(0, -1);
+                }
+            });
+        });
+
+        // Validar el formulario antes de enviarlo
+        (function() {
+            'use strict';
+            var forms = document.querySelectorAll('.needs-validation');
+            Array.prototype.slice.call(forms).forEach(function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        })();
+    </script>
 </body>
 </html>
