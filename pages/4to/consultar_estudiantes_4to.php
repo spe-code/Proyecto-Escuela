@@ -48,11 +48,12 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light navbar-custom fixed-top" style="background-color: white;">
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom fixed-top" style="background-color:rgb(39, 99, 173);">
         <div class="container-fluid">
             <!-- Logo o nombre de la aplicación -->
-            <a class="navbar-brand" href="#">
-                <i class="fas fa-school"></i> Gestión Escolar
+            <a class="navbar-brand" style="color: white;" href="#">
+             <img src="../../assets/img/logotipo-liceo.png" alt="Logo del Liceo" class="d-inline-block align-text-top ms-2" style="height: 30px;">
+            <i class=""></i> Liceo B. Albertina Escalona de Suros
             </a>
 
             <!-- Botón para colapsar el navbar en móviles -->
@@ -65,21 +66,21 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <ul class="navbar-nav ms-auto">
                     <!-- Opción: Inicio -->
                     <li class="nav-item">
-                        <a class="nav-link active" href="../index.php">
+                        <a class="nav-link active" style="color: white;" href="../index.php">
                             <i class="fas fa-home"></i> Inicio
                         </a>
                     </li>
 
                     <!-- Opción: Inscribir Estudiantes -->
                     <li class="nav-item">
-                        <a class="nav-link" href="../inscripcion.php">
+                        <a class="nav-link" style="color: white;" href="../inscripcion.php">
                             <i class="fas fa-user-plus"></i> Inscribir Estudiantes
                         </a>
                     </li>
 
                     <!-- Opción: Consultar Datos (con menú desplegable) -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" style="color: white;" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fas fa-search"></i> Consultar Datos
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">

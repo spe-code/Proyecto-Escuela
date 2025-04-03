@@ -132,8 +132,27 @@
                     <li><a class="dropdown-item" href="../pages/5to/consultar_estudiantes_5to.php">5to AÑO</a></li>
                 </ul>
             </div>
+
+
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-user-graduate"></i> Nuevo Año Escolar
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" href="../pages/promocion_1-2/NuevoPeriodo_1-2.php">1er AÑO</a></li>
+                    <li><a class="dropdown-item" href="../pages/promocion_2-3/NuevoPeriodo_2-3.php">2do AÑO</a></li>
+                    <li><a class="dropdown-item" href="../pages/promocion_3-4/NuevoPeriodo_3-4.php">3er AÑO</a></li>
+                    <li><a class="dropdown-item" href="../pages/promocion_4-5/NuevoPeriodo_4-5.php">4to AÑO</a></li>
+                    <li><a class="dropdown-item" href="../pages/promocion_5-Egreso/NuevoPeriodo_5-Egreso.php">5to AÑO</a></li>
+
+                </ul>
+             </div>
+
+            <!-- Botón de Consultar Egresados -->
+            <a href="../pages/promocion_5-Egreso/consultar_egresados.php" class="btn btn-secondary">
+                <i class="fa-solid fa-graduation-cap fa-shake"></i> Consultar Egresados
+            </a>
         </div>
-    </div>
 
     <!-- Bootstrap JS y dependencias -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
