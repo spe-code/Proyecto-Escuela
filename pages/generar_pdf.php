@@ -141,7 +141,7 @@ $pdf->Write(0, $data['direccion_estudiante']);
 $pdf->SetXY(36, 93.5); // Cambia las coordenadas según la posición en tu plantilla
 $pdf->Write(0, $data['telefono_local_estudiante']);
 
-$pdf->SetXY(90, 93.5); // Cambia las coordenadas según la posición en tu plantilla
+$pdf->SetXY(91, 93.5); // Cambia las coordenadas según la posición en tu plantilla
 $pdf->Write(0, $data['telefono_celular_estudiante']);
 
 
@@ -157,7 +157,7 @@ $pdf->SetXY(88, 99.5); // Cambia las coordenadas según la posición en tu plant
 $pdf->Write(0, $data['seccion_estudiante']);
 
 // Marcar "X" según el sexo del estudiante
-$pdf->SetXY(140.4, 99.4); // Coordenadas para el campo 
+$pdf->SetXY(141, 100); // Coordenadas para el campo 
 if ($data['tipo_estudiante'] === 'regular') {
     $pdf->Write(0, 'X'); // Marcar con "X" si es 
 } else {
@@ -221,19 +221,19 @@ if (empty($data['es_alergico_estudiante'])) {
 }
 
 // Nombre de la madre
-$pdf->SetXY(77, 127); // Cambia las coordenadas según la posición en tu plantilla     
+$pdf->SetXY(78, 128); // Cambia las coordenadas según la posición en tu plantilla     
 $pdf->Write(0, $data['nombre_madre']);
 
 // Apellido de la madre
-$pdf->SetXY(107, 127); // Cambia las coordenadas según la posición en tu plantilla
+$pdf->SetXY(108, 128); // Cambia las coordenadas según la posición en tu plantilla
 $pdf->Write(0, $data['apellido_madre']);
 
 // Cédula de la madre
-$pdf->SetXY(47, 132.8); // Cambia las coordenadas según la posición en tu plantilla
+$pdf->SetXY(47, 133.8); // Cambia las coordenadas según la posición en tu plantilla
 $pdf->Write(0, $data['cedula_madre']);
 
 //NACIONALIDAD DEL MADRE
-$pdf->SetXY(29.5, 133.5); // Coordenadas para el campo femenino
+$pdf->SetXY(29.5, 134.5); // Coordenadas para el campo femenino
 if ($data['nacionalidad_madre'] === 'Venezolana') {
     $pdf->Write(0, 'X'); // Marcar con "X" si es Venezonala
 } else {
@@ -241,7 +241,7 @@ if ($data['nacionalidad_madre'] === 'Venezolana') {
 }
 
 
-$pdf->SetXY(38, 133.5); // Coordenadas para el campo femenino
+$pdf->SetXY(38, 134.5); // Coordenadas para el campo femenino
 if ($data['nacionalidad_madre'] === 'Extranjera') {
     $pdf->Write(0, 'X'); // Marcar con "X" si es Venezonala
 } else {
@@ -249,35 +249,35 @@ if ($data['nacionalidad_madre'] === 'Extranjera') {
 }
 
 // Oficio de la madre
-$pdf->SetXY(35, 145); // Cambia las coordenadas según la posición en tu plantilla
+$pdf->SetXY(35, 146); // Cambia las coordenadas según la posición en tu plantilla
 $pdf->Write(0, $data['oficio_madre']);
 
 // Teléfono local de la madre
-$pdf->SetXY(111, 132.5); // Cambia las coordenadas según la posición en tu plantilla
+$pdf->SetXY(111, 133.5); // Cambia las coordenadas según la posición en tu plantilla
 $pdf->Write(0, $data['telefono_local_madre']);
 
 // Teléfono celular de la madre
-$pdf->SetXY(170, 132.5); // Cambia las coordenadas según la posición en tu plantilla
+$pdf->SetXY(170, 133.5); // Cambia las coordenadas según la posición en tu plantilla
 $pdf->Write(0, $data['telefono_celular_madre']);
 
 // Dirección de la madre
-$pdf->SetXY(35, 138.5); // Cambia las coordenadas según la posición en tu plantilla
+$pdf->SetXY(35, 140); // Cambia las coordenadas según la posición en tu plantilla
 $pdf->Write(0, $data['direccion_madre']);
 
 // Nombre del padre
-$pdf->SetXY(77, 154); // Cambia las coordenadas según la posición en tu plantilla
+$pdf->SetXY(77, 156); // Cambia las coordenadas según la posición en tu plantilla
 $pdf->Write(0, $data['nombre_padre']);
 
 // Apellido del padre
-$pdf->SetXY(107, 154); // Cambia las coordenadas según la posición en tu plantilla
+$pdf->SetXY(107, 156); // Cambia las coordenadas según la posición en tu plantilla
 $pdf->Write(0, $data['apellido_padre']);
 
 // Cédula del padre
-$pdf->SetXY(47, 159.8); // Cambia las coordenadas según la posición en tu plantilla
+$pdf->SetXY(47, 161); // Cambia las coordenadas según la posición en tu plantilla
 $pdf->Write(0, $data['cedula_padre']);
 
 //NACIONALIDAD DEL PADRE
-$pdf->SetXY(29.5, 160.5); 
+$pdf->SetXY(29.5, 162); 
 if ($data['nacionalidad_padre'] === 'Venezolana') {
     $pdf->Write(0, 'X'); // Marcar con "X" si es Venezonala
 } else {
@@ -285,7 +285,7 @@ if ($data['nacionalidad_padre'] === 'Venezolana') {
 }
 
 
-$pdf->SetXY(38, 160.5); 
+$pdf->SetXY(38, 162); 
 if ($data['nacionalidad_padre'] === 'Extranjera') {
     $pdf->Write(0, 'X'); // Marcar con "X" si es Venezonala
 } else {
@@ -293,42 +293,42 @@ if ($data['nacionalidad_padre'] === 'Extranjera') {
 }
 
 //Oficio del padre
-$pdf->SetXY(35, 171.5); // Cambia las coordenadas según la posición en tu plantilla
+$pdf->SetXY(35, 173.5); // Cambia las coordenadas según la posición en tu plantilla
 $pdf->Write(0, $data['oficio_padre']);
 
 // Teléfono local del padre
-$pdf->SetXY(111, 159.5); // Cambia las coordenadas según la posición en tu plantilla
+$pdf->SetXY(111, 161.5); // Cambia las coordenadas según la posición en tu plantilla
 $pdf->Write(0, $data['telefono_local_padre']);
 
 // Teléfono celular del padre
-$pdf->SetXY(169.5, 159.5); // Cambia las coordenadas según la posición en tu plantilla
+$pdf->SetXY(169.5, 161.5); // Cambia las coordenadas según la posición en tu plantilla
 $pdf->Write(0, $data['telefono_celular_padre']);
 
 // Dirección del padre
-$pdf->SetXY(35, 166); // Cambia las coordenadas según la posición en tu plantilla
+$pdf->SetXY(35, 167); // Cambia las coordenadas según la posición en tu plantilla
 $pdf->Write(0, $data['direccion_padre']);
 
 // Nombre del representante
-$pdf->SetXY(53, 181); // Cambia las coordenadas según la posición en tu plantilla
+$pdf->SetXY(53, 183); // Cambia las coordenadas según la posición en tu plantilla
 $pdf->Write(0, $data['nombre_representante']);
 
 // Apellido del representante
-$pdf->SetXY(77, 181); // Cambia las coordenadas según la posición en tu plantilla
+$pdf->SetXY(77, 183); // Cambia las coordenadas según la posición en tu plantilla
 $pdf->Write(0, $data['apellido_representante']);
 
 // Cédula del representante
-$pdf->SetXY(47, 186.8); // Cambia las coordenadas según la posición en tu plantilla
+$pdf->SetXY(47, 189); // Cambia las coordenadas según la posición en tu plantilla
 $pdf->Write(0, $data['cedula_representante']);
 
 //NACIONALIDAD DEL REPRESENTANTE
-$pdf->SetXY(29.5, 186.5);
+$pdf->SetXY(29.5, 188);
 if ($data['nacionalidad_representante'] === 'Venezolana') {
     $pdf->Write(0, 'X'); // Marcar con "X" si es Venezonala
 } else {
     $pdf->Write(0, ''); // Dejar vacío si no es Extranjera
 }
 
-$pdf->SetXY(38, 186.5);
+$pdf->SetXY(38, 188);
 if ($data['nacionalidad_representante'] === 'Extranjera') {
     $pdf->Write(0, 'X'); // Marcar con "X" si es Venezonala
 } else {
@@ -336,15 +336,15 @@ if ($data['nacionalidad_representante'] === 'Extranjera') {
 }
 
 // Teléfono local del representante
-$pdf->SetXY(111, 186.5); // Cambia las coordenadas según la posición en tu plantilla
+$pdf->SetXY(111, 188); // Cambia las coordenadas según la posición en tu plantilla
 $pdf->Write(0, $data['telefono_local_representante']);
 
 // Teléfono celular del representante
-$pdf->SetXY(169.5, 186.5); // Cambia las coordenadas según la posición en tu plantilla
+$pdf->SetXY(169.5, 188); // Cambia las coordenadas según la posición en tu plantilla
 $pdf->Write(0, $data['telefono_celular_representante']);
 
 // Parentesco del representante
-$pdf->SetXY(38, 198.5); // Cambia las coordenadas según la posición en tu plantilla
+$pdf->SetXY(38, 200); // Cambia las coordenadas según la posición en tu plantilla
 $pdf->Write(0, $data['parentesco_representante']);
 
 // Carnet de la patria del representante
@@ -352,15 +352,15 @@ $pdf->Write(0, $data['parentesco_representante']);
 //$pdf->Write(0, $data['carnet_patria_representante']);
 
 // Código del representante
-$pdf->SetXY(132, 198.5); // Cambia las coordenadas según la posición en tu plantilla
+$pdf->SetXY(132, 200); // Cambia las coordenadas según la posición en tu plantilla
 $pdf->Write(0, $data['codigo_representante']);
 
 // Serial del representante
-$pdf->SetXY(176, 198.5); // Cambia las coordenadas según la posición en tu plantilla
+$pdf->SetXY(176, 200); // Cambia las coordenadas según la posición en tu plantilla
 $pdf->Write(0, $data['serial_representante']);
 
 //Direccion del representante
-$pdf->SetXY(38, 193); // Cambia las coordenadas según la posición en tu plantilla
+$pdf->SetXY(38, 195); // Cambia las coordenadas según la posición en tu plantilla
 $pdf->Write(0, $data['direccion_representante']);
 
 
