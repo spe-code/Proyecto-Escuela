@@ -1,3 +1,7 @@
+<?php
+require_once '../includes/auth.php';
+requireLogin();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,7 +15,6 @@
     <!-- Estilos personalizados -->
     <style>
         body {
-         
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: 
              linear-gradient(rgba(25, 50, 70, 0.85), rgba(25, 50, 70, 0.85)),
@@ -21,11 +24,12 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            position: relative;
         }
 
         .welcome-container {
-            background: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
-            backdrop-filter: blur(10px); /* Efecto glass */
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
             border-radius: 15px;
             padding: 40px;
             text-align: center;
@@ -39,6 +43,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            position: relative;
         }
 
         .welcome-title {
@@ -83,6 +88,36 @@
             transform: translateY(-2px);
         }
 
+        .btn-danger {
+            background-color: rgba(255, 0, 0, 0.2);
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            color: #fff;
+        }
+
+        .btn-danger:hover {
+            background-color: rgba(255, 0, 0, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .btn-admin {
+            background-color: rgba(0, 128, 0, 0.2);
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            color: #fff;
+        }
+
+        .btn-admin:hover {
+            background-color: rgba(0, 128, 0, 0.3);
+            transform: translateY(-2px);
+        }
+
         .dropdown-menu {
             background-color: rgba(255, 255, 255, 0.9);
             border: none;
@@ -102,11 +137,39 @@
         .button-group {
             display: flex;
             justify-content: center;
-            gap: 10px; /* Espacio entre los botones */
+            gap: 10px;
+        }
+
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .user-info {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            font-size: 0.9rem;
+            z-index: 1000;
         }
     </style>
 </head>
 <body>
+    <!-- Botón de cerrar sesión -->
+    <div class="logout-btn">
+        <a href="../includes/logout.php" class="btn btn-danger">
+            <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+        </a>
+    </div>
+
+    <!-- Información del usuario -->
+    <div class="user-info">
+        <i class="fas fa-user-circle"></i> <?php echo htmlspecialchars($_SESSION['admin_nombre'] ?? 'Administrador'); ?>
+    </div>
+
     <!-- Contenido principal -->
     <div class="welcome-container">
         <h1 class="welcome-title">Bienvenido al Sistema de Gestión Escolar</h1>
@@ -133,7 +196,7 @@
                 </ul>
             </div>
 
-
+            <!-- Botón de Nuevo Año Escolar -->
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fas fa-user-graduate"></i> Nuevo Año Escolar
@@ -144,18 +207,25 @@
                     <li><a class="dropdown-item" href="../pages/promocion_3-4/NuevoPeriodo_3-4.php">3er AÑO</a></li>
                     <li><a class="dropdown-item" href="../pages/promocion_4-5/NuevoPeriodo_4-5.php">4to AÑO</a></li>
                     <li><a class="dropdown-item" href="../pages/promocion_5-Egreso/NuevoPeriodo_5-Egreso.php">5to AÑO</a></li>
-
                 </ul>
-             </div>
+            </div>
 
             <!-- Botón de Consultar Egresados -->
             <a href="../pages/promocion_5-Egreso/consultar_egresados.php" class="btn btn-secondary">
                 <i class="fa-solid fa-graduation-cap fa-shake"></i> Consultar Egresados
             </a>
+
+            <!-- Botón de Registrar Administradores -->
+            <a href="registrar_admin.php" class="btn btn-admin">
+                <i class="fas fa-user-shield"></i> Registrar Administradores
+            </a>
         </div>
+    </div>
 
     <!-- Bootstrap JS y dependencias -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <!-- FontAwesome para el icono de egresados -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>

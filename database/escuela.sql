@@ -87,3 +87,21 @@ CREATE TABLE egresados (
     INDEX idx_periodo_escolar (periodo_escolar),
     INDEX idx_nombre (nombre_estudiante, apellido_estudiante)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Agregar esta tabla a tu base de datos escuela
+CREATE TABLE administradores (
+    id_admin INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    nombre_completo VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    fecha_creacion DATETIME DEFAULT CURRENT_TIMESTAMP,
+    ultimo_acceso DATETIME,
+    activo TINYINT(1) DEFAULT 1
+);
+
+
+INSERT INTO `administradores` (`id_admin`, `username`, `password_hash`, `nombre_completo`, `email`, `fecha_creacion`, `ultimo_acceso`, `activo`) VALUES
+(2, 'admin', '$2y$10$8ps4WJHyGpFTufzrVzzZD.Isuzin0IsoAA9UpLD2Dn8D/BHigxsXG', 'Administrador Principal', 'admin@escuela.edu', '2025-04-04 21:33:27', '2025-04-05 09:56:11', 1);
+
+//*admin y clave es Admin1234

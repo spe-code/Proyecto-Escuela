@@ -223,8 +223,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <li><a class="dropdown-item" href="../pages/3ro/consultar_estudiantes_3ro.php" target="_blank">3er AÑO</a></li>
                             <li><a class="dropdown-item" href="../pages/4to/consultar_estudiantes_4to.php" target="_blank">4to AÑO</a></li>
                             <li><a class="dropdown-item" href="../pages/5to/consultar_estudiantes_5to.php" target="_blank">5to AÑO</a></li>
-                            </ul>
+                            
+                        </ul>
                         </li>
+                           <li class="nav-item">
+                    <a href="registrar_admin.php" class="btn btn-admin" style="color: white;">
+                        <i class="fas fa-user-cog"></i> Administrares
+            
+            </a>
+                </li>
+                         <!-- Botón de Cerrar Sesión -->
+                <li class="nav-item">
+                    <a class="nav-link" style="color: white;" href="../includes/logout.php" onclick="return confirm('¿Estás seguro que deseas cerrar sesión?');">
+                        <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                    </a>
+                </li>
                     </ul>
                 </div>
             </div>
