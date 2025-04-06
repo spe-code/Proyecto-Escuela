@@ -104,4 +104,4 @@ CREATE TABLE administradores (
 INSERT INTO `administradores` (`id_admin`, `username`, `password_hash`, `nombre_completo`, `email`, `fecha_creacion`, `ultimo_acceso`, `activo`) VALUES
 (2, 'admin', '$2y$10$8ps4WJHyGpFTufzrVzzZD.Isuzin0IsoAA9UpLD2Dn8D/BHigxsXG', 'Administrador Principal', 'admin@escuela.edu', '2025-04-04 21:33:27', '2025-04-05 09:56:11', 1);
 
-//*admin y clave es Admin1234
+/*admin y clave es Admin1234

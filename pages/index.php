@@ -35,9 +35,9 @@ requireLogin();
             text-align: center;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.18);
-            max-height: 350px;
+            max-height: 400px;
             height: 100%;
-            max-width: 1000px;
+            max-width: 1200px;
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -89,7 +89,7 @@ requireLogin();
         }
 
         .btn-danger {
-            background-color: rgba(255, 0, 0, 0.2);
+            background-color: rgba(255, 0, 0, 0.6);
             border: none;
             border-radius: 5px;
             padding: 10px 20px;
@@ -99,12 +99,12 @@ requireLogin();
         }
 
         .btn-danger:hover {
-            background-color: rgba(255, 0, 0, 0.3);
+            background-color: rgba(146, 4, 4, 0.89);
             transform: translateY(-2px);
         }
 
         .btn-admin {
-            background-color: rgba(0, 128, 0, 0.2);
+            background-color: rgba(0, 194, 0, 0.47);
             border: none;
             border-radius: 5px;
             padding: 10px 20px;
@@ -114,7 +114,8 @@ requireLogin();
         }
 
         .btn-admin:hover {
-            background-color: rgba(0, 128, 0, 0.3);
+            background-color: rgba(4, 131, 4, 0.46);
+            color: white;
             transform: translateY(-2px);
         }
 

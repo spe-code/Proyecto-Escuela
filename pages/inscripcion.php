@@ -12,6 +12,7 @@
     <!-- SweetAlert2 CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <!-- SweetAlert2 JS -->
+     <link rel="stylesheet" href="../assets/css/navbar-menu.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         body {
@@ -91,7 +92,7 @@
     <div class="container mt-5">
         <div class="form-container">
             <h1>Inscripción de Estudiantes</h1>
-            <?php
+<?php
 include '../includes/conexion.php'; // Asegúrate de que el archivo de conexión sea correcto
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

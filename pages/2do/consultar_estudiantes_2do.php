@@ -43,6 +43,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
 <!-- SweetAlert2 JS -->
+<link rel="stylesheet" href="../../assets/css/navbar-menu.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
@@ -479,7 +480,7 @@ $(document).ready(function() {
 
                 // Hacer una solicitud AJAX para obtener los detalles
                 $.ajax({
-                    url: 'obtener_detalles.php', // Archivo PHP que obtiene los detalles
+                    url: '../2do/Controladores/obtener_detalles.php', // Archivo PHP que obtiene los detalles
                     type: 'GET',
                     data: { id: id },
                     success: function(response) {
@@ -497,7 +498,7 @@ $(document).ready(function() {
 
                 // Hacer una solicitud AJAX para obtener los datos del estudiante
                 $.ajax({
-                    url: 'obtener_datos_editar.php', // Archivo PHP que obtiene los datos para editar
+                    url: '../2do/Controladores/obtener_datos_editar.php', // Archivo PHP que obtiene los datos para editar
                     type: 'GET',
                     data: { id: id },
                     success: function(response) {
@@ -603,7 +604,7 @@ $(document).ready(function() {
 
                 // Enviar los datos al servidor para actualizar
                 $.ajax({
-    url: 'actualizar_datos.php', // Archivo PHP que procesa la actualización
+    url: '../2do/Controladores/actualizar_datos.php', // Archivo PHP que procesa la actualización
     type: 'POST',
     data: { id: id, datos: datos },
     success: function(response) {
@@ -649,7 +650,7 @@ $(document).ready(function() {
                 if (result.isConfirmed) {
                     // Si el usuario confirma, hacer una solicitud AJAX para eliminar
                     $.ajax({
-                        url: 'eliminar_estudiante.php', // Archivo PHP que elimina el estudiante
+                        url: '../2do/Controladores/eliminar_estudiante.php', // Archivo PHP que elimina el estudiante
                         type: 'GET',
                         data: { id: id },
                         success: function(response) {

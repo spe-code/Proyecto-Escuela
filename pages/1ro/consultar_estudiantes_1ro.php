@@ -32,7 +32,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consultar Datos de Estudiantes de 2do Año</title>
+    <title>Consultar Datos de Estudiantes de 1ro Año</title>
     <link rel="stylesheet" href="../../assets/css/consultas_estudiante.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Bootstrap CSS -->
@@ -40,10 +40,11 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <!-- jQuery (necesario para Bootstrap) -->
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <!-- SweetAlert2 CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-
-<!-- SweetAlert2 JS -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <!-- SweetAlert2 JS -->
+    <link rel="stylesheet" href="../../assets/css/navbar-menu.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
 </head>
 <body>
 
@@ -479,7 +480,7 @@ $(document).ready(function() {
 
                 // Hacer una solicitud AJAX para obtener los detalles
                 $.ajax({
-                    url: 'obtener_detalles.php', // Archivo PHP que obtiene los detalles
+                    url: '../1ro/Controladores/obtener_detalles.php', // Archivo PHP que obtiene los detalles
                     type: 'GET',
                     data: { id: id },
                     success: function(response) {
@@ -497,7 +498,7 @@ $(document).ready(function() {
 
                 // Hacer una solicitud AJAX para obtener los datos del estudiante
                 $.ajax({
-                    url: 'obtener_datos_editar.php', // Archivo PHP que obtiene los datos para editar
+                    url: '../1ro/Controladores/obtener_datos_editar.php', // Archivo PHP que obtiene los datos para editar
                     type: 'GET',
                     data: { id: id },
                     success: function(response) {
@@ -603,7 +604,7 @@ $(document).ready(function() {
 
                 // Enviar los datos al servidor para actualizar
                 $.ajax({
-    url: 'actualizar_datos.php', // Archivo PHP que procesa la actualización
+    url: '../1ro/Controladores/actualizar_datos.php', // Archivo PHP que procesa la actualización
     type: 'POST',
     data: { id: id, datos: datos },
     success: function(response) {
@@ -649,7 +650,7 @@ $(document).ready(function() {
                 if (result.isConfirmed) {
                     // Si el usuario confirma, hacer una solicitud AJAX para eliminar
                     $.ajax({
-                        url: 'eliminar_estudiante.php', // Archivo PHP que elimina el estudiante
+                        url: '../1ro/Controladores/eliminar_estudiante.php', // Archivo PHP que elimina el estudiante
                         type: 'GET',
                         data: { id: id },
                         success: function(response) {

@@ -1,5 +1,5 @@
 <?php
-include '../../includes/conexion.php'; // Incluye la conexión a la base de datos
+include '../../../includes/conexion.php'; // Incluye la conexión a la base de datos
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtener el ID del estudiante y los datos del formulario

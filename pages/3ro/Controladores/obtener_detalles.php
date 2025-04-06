@@ -1,5 +1,5 @@
 <?php
-include '../../includes/conexion.php'; // Incluye la conexión a la base de datos
+include '../../../includes/conexion.php'; // Incluye la conexión a la base de datos
 
 // Obtener el ID del estudiante desde la URL
 if (isset($_GET['id'])) {
